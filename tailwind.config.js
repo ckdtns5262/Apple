@@ -13,7 +13,10 @@ module.exports = {
         'bg7' : "url('../public/img/banner7.jpeg')",
         'bg8' : "url('../public/img/banner8.jpeg')",
         'bg9' : "url('../public/img/banner9.png')",
-
+        'ca1' : "url('../public/img/carousel1.jpeg')",
+        'ca2' : "url('../public/img/carousel2.jpeg')",
+        'ca3' : "url('../public/img/carousel3.jpeg')",
+        'ca4' : "url('../public/img/carousel4.jpeg')",
 
       }
     },

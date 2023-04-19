@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Carousel from "./Carousel";
 import ContentDiv from "./ContentDiv";
 
 
@@ -27,7 +28,7 @@ const Content = () => {
         </a>
       </section>
       {/* 2번 banner */}
-      <section className="bg-bg2  h-screen bg-[100%] text-center justify-center items-center">
+      <section className="bg-bg2 h-screen bg-[100%] relative text-center justify-center items-center">
         <a href="/14">
         <div className="text-black "></div>
         <h2 className="text-[50px] font-bold">iPhone 14</h2>
@@ -44,7 +45,7 @@ const Content = () => {
         </a>
       </section>
       {/* 3번 banner */}  
-      <section className="bg-bg3 h-screen bg-[90%] text-center text-white justify-center items-center">
+      <section className="bg-bg3 h-screen bg-[100%] relative text-center text-white justify-center items-center">
         <a href="/watch">
         <div className="text-black "></div>
         <h2 className="text-[50px] font-bold">🍎WATCH</h2>
@@ -64,6 +65,7 @@ const Content = () => {
       <div className="p-2 m-2"></div>
       <ContentDiv/>
       {/* 캐러쉘 */}
+      <Carousel/>
     </div>
   );
 };

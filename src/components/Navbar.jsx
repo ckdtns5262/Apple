@@ -1,8 +1,10 @@
-import React from "react";
+import {React,useState} from "react";
 import { DiApple } from "react-icons/di";
 import { FiSearch } from "react-icons/fi";
 import { BsBag } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import ShowModal from "./ShowModal";
+
 
 const Navbar = () => {
   const navbars = [
@@ -18,16 +20,21 @@ const Navbar = () => {
     "고객지원",
   ];
   const navigate = useNavigate();
+  const [modal, setModal] = useState(false)
+  const [cName, setCName] = useState()
 
   return (
     <div>
-      <div className="bg-[#434344] p-2 text-white font-semibold">
+      <div className={`${modal === true ? 'bg-black' : 'bg-[#434344]'} p-2 text-white font-semibold relative z-0`}>
         <div className="flex items-center justify-between">
           <DiApple className="text-[28px] ml-9" onClick={()=>navigate("/")} />
           {navbars.map((name, i) => (
-            <p key={i} className="text-[12px] hidden lg:flex">
+            <a key={i} className="text-[12px] hidden lg:flex" href={`/${name})}`}
+              onMouseOver={(e)=>{{setModal(true); setCName(name)}}}
+              onMouseOut={()=>{setModal(false)}}
+              >
               {name}
-            </p>
+            </a>
           ))}
           <div className=" flex absoulte space-x-9">
             <FiSearch />
@@ -35,7 +42,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="p-2 text-center">
+          {modal === true ? <ShowModal cName={cName}/> :  
+            <div className="p-2 text-center z-0 relative">
         <p>
           iPhone 7 Plus 이후 모델을 보상 판매하면 iPhone 14 또는 iPhone 14 Pro
           구입 시 사용할 수 있는 ₩40,000-₩780,000 상당의 크레딧이.
@@ -43,7 +51,8 @@ const Navbar = () => {
             iPhone 쇼핑하기
           </a>
         </p>
-      </div>
+      </div>}
+     
     </div>
   );
 };
