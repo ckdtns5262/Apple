@@ -2,17 +2,21 @@ import React from "react";
 import { useState } from "react";
 import Carousel from "./Carousel";
 import ContentDiv from "./ContentDiv";
+import { useRecoilValue } from "recoil";
+import { countNextState } from "../selectors";
 
 
 const Content = () => {
   const [over1, setOver1] = useState(false);
   const [over2, setOver2] = useState(false);
-
+  const modal = useRecoilValue(countNextState)
 
   return (
+    <>
     <div className="h-full bg-center">
+    
       {/* 1번 banner */}
-      <section className="bg-bg1 h-screen bg-[100%] relative text-white text-center justify-center items-center">
+      <section className={`${modal === true ? 'blur-sm  bg-bg1 h-screen bg-[100%] relative text-white text-center justify-center items-center z-20' : ''}bg-bg1 h-screen bg-[100%] relative text-white text-center justify-center items-center z-20`}>
         <a href="/14pro">
         <div className="text-black ">빈칸</div>
         <h2 className="text-[50px] font-bold">iPhone 14 Pro</h2>
@@ -67,6 +71,7 @@ const Content = () => {
       {/* 캐러쉘 */}
       <Carousel/>
     </div>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import Content from "./components/Content";
 import Footer from "./components/Footer";
 function App() {
   return (
+
     <div>
    {/* header */}
     <Navbar/>
@@ -12,6 +13,7 @@ function App() {
    {/* footer */}
    <Footer/>
     </div>
+
   );
 }
 

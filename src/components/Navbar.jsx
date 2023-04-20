@@ -4,7 +4,8 @@ import { FiSearch } from "react-icons/fi";
 import { BsBag } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import ShowModal from "./ShowModal";
-
+import { countState } from "../atom";
+import { useRecoilState } from "recoil";
 
 const Navbar = () => {
   const navbars = [
@@ -20,12 +21,12 @@ const Navbar = () => {
     "고객지원",
   ];
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useRecoilState(countState)
   const [cName, setCName] = useState()
 
   return (
     <div>
-      <div className={`${modal === true ? 'bg-black' : 'bg-[#434344]'} p-2 text-white font-semibold relative z-0`}>
+      <div className={`${modal === true ? 'bg-black transition-all ease-out duration-1000' : 'bg-[#434344]'} p-2 text-white font-semibold relative z-0`}>
         <div className="flex items-center justify-between">
           <DiApple className="text-[28px] ml-9" onClick={()=>navigate("/")} />
           {navbars.map((name, i) => (
@@ -42,7 +43,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-          {modal === true ? <ShowModal cName={cName}/> :  
+          {modal === true ? <div className="transition-all ease-out duration-1000"><ShowModal cName={cName}/></div> :  
             <div className="p-2 text-center z-0 relative">
         <p>
           iPhone 7 Plus 이후 모델을 보상 판매하면 iPhone 14 또는 iPhone 14 Pro
