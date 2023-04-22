@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavTabs = () => {
+const FooterTab = () => {
   const nav1 = [
     "스토어",
     "Mac",
@@ -125,4 +125,4 @@ const NavTabs = () => {
   );
 };
 
-export default NavTabs;
+export default FooterTab;

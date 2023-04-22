@@ -1,6 +1,6 @@
 import React from 'react'
 import Copyright from './Copyright'
-import NavTabs from './NavTabs'
+import FooterTab from './FooterTab'
 
 const Footer = () => {
   return (
@@ -22,7 +22,7 @@ const Footer = () => {
     <br/>
     <hr></hr>
     {/* 메뉴탭들 정렬 */}
-    <NavTabs/>
+    <FooterTab/>
     {/* ----------- */}
     {/* <hr></hr> */}
     {/* copyright  */}
