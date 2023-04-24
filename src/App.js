@@ -9,11 +9,11 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home/>}/>
         <Route path="/스토어" element={<Store />} />
         <Route path="/Mac" element={<Mac/>} />
         <Route path="/iPad" element={<Ipad/>} />
       </Routes>
-      <Home />
     </>
 
   );

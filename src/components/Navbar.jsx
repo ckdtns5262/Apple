@@ -4,7 +4,7 @@ import { FiSearch } from "react-icons/fi";
 import { BsBag } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import ShowModal from "./ShowModal";
-import { cartState, countState, searchState } from "../atom";
+import { countState } from "../atom";
 import { useRecoilState } from "recoil";
 
 const Navbar = () => {
@@ -23,8 +23,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [modal, setModal] = useRecoilState(countState)
   const [cName, setCName] = useState('')
-  const [searchClick, setSearchClick] = useRecoilState(searchState)
-  const [cartClick, setCartClick] = useRecoilState(cartState)
+  const [searchClick, setSearchClick] = useState(false)
+  const [cartClick, setCartClick] = useState(false)
 
   return (
     <div>
@@ -41,9 +41,9 @@ const Navbar = () => {
           ))}
           <div className=" flex absoulte space-x-9">
             <FiSearch onClick={()=>{
-              setSearchClick(true) 
-              console.log('1')}}/>
-            <BsBag className="mr-5" onClick={()=>{setCartClick(true)}}/>
+              setSearchClick(!searchClick)
+              }}/>
+            <BsBag className="mr-5" onClick={()=>{setCartClick(!cartClick)}}/>
           </div>
         </div>
       </div>
@@ -57,20 +57,9 @@ const Navbar = () => {
           </a>
         </p>
       </div>}
- 
-      {
-        searchClick === true ? <div className="transition-all ease-out duration-1000"><ShowModal cName={cName}/></div> :  
-        <div className="p-2 text-center z-0 relative">
-    <p>
-      iPhone 7 Plus 이후 모델을 보상 판매하면 iPhone 14 또는 iPhone 14 Pro
-      구입 시 사용할 수 있는 ₩40,000-₩780,000 상당의 크레딧이.
-      <a href="/" className="text-blue-700">
-        iPhone 쇼핑하기
-      </a>
-    </p>
-  </div>}
+      {searchClick === true ? <div className="bg-white"><ShowModal searchClick={searchClick} cartClick={cartClick}/></div> : ''}
     </div>
-  );
+  )
 };
 
 export default Navbar;

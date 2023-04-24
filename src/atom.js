@@ -5,11 +5,3 @@ export const countState = atom({
     default: false // 초깃값
   });
 
-export const searchState = atom({
-  key : "searchState",
-  default : false
-})
-export const cartState = atom({
-  key : "cartState",
-  default : false
-})
