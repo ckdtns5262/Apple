@@ -1,5 +1,5 @@
 
-### Apple 클론 `(https://ckdtns5262.github.io/Apple/)`
+### Apple 클론 (https://ckdtns5262.github.io/Apple/)
 
 ### 한 줄 소개
 
